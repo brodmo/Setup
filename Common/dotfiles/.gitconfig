@@ -1,0 +1,38 @@
+[user]
+    name = Moritz Brödel
+
+[include]
+    path = ~/.gitconfig.local
+
+[core]
+    excludesFile = ~/.gitignore
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    paging = never
+    tabs = 4
+    syntax-theme = OneHalfDark
+    line-numbers = true
+    # hunk-header-style = omit
+    # side-by-side = true
+
+[init]
+    defaultBranch = main
+
+[rerere]
+    enabled = true
+
+[rebase]
+    autoStash = true
+
+[pull]
+    rebase = true
+
+[push]
+    autoSetupRemote = true
+
+[fetch]
+    prune = true

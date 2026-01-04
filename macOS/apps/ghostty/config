@@ -1,0 +1,10 @@
+theme = AtomOneDark
+font-feature = -calt
+shell-integration = zsh
+
+window-height = 999
+window-width = 999
+
+confirm-close-surface=false
+
+keybind = shift+enter=text:\n

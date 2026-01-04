@@ -1,0 +1,8 @@
+StarDict's dict ifo file
+version=2.4.2
+bookname=PONS Wörterbuch En-De Premium
+wordcount=104250
+idxfilesize=1922873
+author=pocketbookdic.pl
+description=lang_from="eng" lang_to="de" format="visual"
+sametypesequence=h

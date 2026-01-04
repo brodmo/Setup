@@ -1,0 +1,27 @@
+-- ./settings/battery_stats.lua
+return {
+    ["awake"] = {
+        ["percentage"] = 123,
+        ["time"] = 228032213034,
+    },
+    ["awake_state"] = {
+        ["percentage"] = 53,
+        ["timestamp"] = 1725139134,
+    },
+    ["charging"] = {
+        ["percentage"] = 2,
+        ["time"] = 48067605623,
+    },
+    ["charging_state"] = {
+        ["percentage"] = 53,
+        ["timestamp"] = 1725139202,
+    },
+    ["discharging"] = {
+        ["percentage"] = 574,
+        ["time"] = 7218141306873,
+    },
+    ["sleeping"] = {
+        ["percentage"] = 451,
+        ["time"] = 6990109079224,
+    },
+}

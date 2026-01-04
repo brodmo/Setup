@@ -1,0 +1,73 @@
+{
+  "schemes" : [
+    {
+      "scrolling" : {
+        "reverse" : {
+          "horizontal" : false,
+          "vertical" : true
+        },
+        "distance" : {
+          "vertical" : "auto"
+        },
+        "acceleration" : {
+          "vertical" : 5
+        },
+        "speed" : {
+          "vertical" : 0
+        }
+      },
+      "pointer" : {
+        "disableAcceleration" : false,
+        "acceleration" : 5,
+        "speed" : 0.05
+      },
+      "if" : {
+        "device" : {
+          "productID" : "0xb020",
+          "serialNumber" : "A1A34D1AC655291F",
+          "vendorID" : "0x46d",
+          "category" : "mouse",
+          "productName" : "MX Vertical"
+        }
+      }
+    },
+    {
+      "pointer" : {
+        "disableAcceleration" : false,
+        "speed" : 0.2,
+        "acceleration" : 2
+      },
+      "if" : {
+        "device" : {
+          "productID" : "0x342",
+          "productName" : "Apple Internal Keyboard \/ Trackpad",
+          "vendorID" : "0x5ac",
+          "category" : "trackpad"
+        }
+      }
+    },
+    {
+      "scrolling" : {
+        "acceleration" : {
+          "vertical" : 1
+        },
+        "reverse" : {
+          "vertical" : true
+        }
+      },
+      "pointer" : {
+        "acceleration" : 5,
+        "speed" : 0.1
+      },
+      "if" : {
+        "device" : {
+          "productName" : "USB Laser Mouse",
+          "category" : "mouse",
+          "productID" : "0xc069",
+          "vendorID" : "0x46d"
+        }
+      }
+    }
+  ],
+  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.0"
+}

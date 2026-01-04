@@ -1,0 +1,194 @@
+general:
+  startup_commands: ['shell-exec zebar']
+  shutdown_commands: ['shell-exec taskkill /IM zebar.exe /F']
+  config_reload_commands: []
+  focus_follows_cursor: false
+  toggle_workspace_on_refocus: false
+  cursor_jump:
+    enabled: true
+    trigger: 'window_focus'
+  hide_method: 'cloak'
+  show_all_in_taskbar: false
+
+gaps:
+  scale_with_dpi: true
+  inner_gap: '0px'
+  outer_gap:
+    top: '40px'
+    right: '0px'
+    bottom: '0px'
+    left: '0px'
+
+window_effects:
+  focused_window:
+    border:
+      enabled: true
+      color: '#61afef'
+    hide_title_bar:
+      enabled: false
+    corner_style:
+      enabled: false
+      style: 'square'
+    transparency:
+      enabled: false
+  other_windows:
+    border:
+      enabled: true
+      color: '#7f848e'
+    hide_title_bar:
+      enabled: false
+    corner_style:
+      enabled: false
+      style: 'square'
+    transparency:
+      enabled: false
+      opacity: '0%'
+
+window_behavior:
+  initial_state: 'tiling'
+  state_defaults:
+    floating:
+      centered: true
+      shown_on_top: false
+    fullscreen:
+      maximized: false
+      shown_on_top: false
+
+workspaces:
+  - name: '1'
+  - name: '2'
+  - name: '3'
+  - name: '4'
+  - name: '5'
+  - name: 'P'  # Pages -- web
+  - name: 'T'  # Thoughts -- notes
+  - name: 'C'  # Chats
+  - name: 'V'  # Vibes -- music
+  - name: 'X'  # Xtra monitor default
+    bind_to_monitor: 0
+
+window_rules:
+  - commands: ['ignore']
+    match:
+      - window_process: { equals: 'zebar' }
+      - window_title: { regex: '[Pp]icture.in.[Pp]icture' }
+        window_class: { regex: 'Chrome_WidgetWin_1|MozillaDialogClass' }
+      - window_process: { equals: 'PowerToys' }
+        window_class: { regex: 'HwndWrapper\[PowerToys\.PowerAccent.*?\]' }
+      - window_process: { equals: 'PowerToys' }
+        window_title: { regex: '.*? - Peek' }
+      - window_process: { equals: 'Lively' }
+        window_class: { regex: 'HwndWrapper' }
+  - commands: ['set-floating']
+    match:
+      - window_title: { equals: 'Settings' }
+      - window_process: { equals: 'Taskmgr' }
+      - window_process: { equals: 'KeePass' }
+      - window_process: { equals: 'KeePassXC' }
+      - window_process: { equals: 'chrome' }
+  - commands: ['move --workspace T']
+    match:
+      - window_process: { equals: 'Obsidian' }
+  - commands: ['move --workspace C']
+    match:
+      - window_process: { equals: 'slack' }
+  - commands: ['move --workspace V']
+    match:
+      - window_process: { equals: 'Spotify' }
+  - commands: ['move --workspace 1']
+    match:
+      - window_process: { equals: 'idea64' }
+
+keybindings:
+  - commands: ['shell-exec wt']
+    bindings: ['control+alt+Decimal'] # enter
+  - commands: ['toggle-tiling-direction']
+    bindings: ['control+alt+shift+Decimal'] # shift + enter
+
+  - commands: ['focus --recent-workspace']
+    bindings: ['control+alt+f15'] # q
+  - commands: ['move-workspace --direction left']
+    bindings: ['control+alt+shift+f15'] # shift + q
+  - commands: ['close']
+    bindings: ['control+alt+f16'] # e
+  - commands: ['move-workspace --direction right']
+    bindings: ['control+alt+shift+f16'] # shift + e
+  - commands: ['wm-cycle-focus']
+    bindings: ['control+alt+Numpad7'] # tilde -> e in aerospace
+  - commands: ['toggle-fullscreen']
+    bindings: ['control+alt+shift+NumPad7'] # shift + tilde -> shift + e in aerospace
+
+  - commands: ['wm-reload-config']
+    bindings: ['control+alt+NumPad0']
+  - commands: ['wm-exit']
+    bindings: ['control+alt+shift+NumPad0']
+
+  - commands: ['focus --direction left']
+    bindings: ['control+alt+Subtract']
+  - commands: ['focus --direction right']
+    bindings: ['control+alt+Add']
+  - commands: ['focus --direction up']
+    bindings: ['control+alt+Divide']
+  - commands: ['focus --direction down']
+    bindings: ['control+alt+Multiply']
+
+  - commands: ['move --direction left']
+    bindings: ['control+alt+shift+Subtract']
+  - commands: ['move --direction right']
+    bindings: ['control+alt+shift+Add']
+  - commands: ['move --direction up']
+    bindings: ['control+alt+shift+Divide']
+  - commands: ['move --direction down']
+    bindings: ['control+alt+shift+Multiply']
+
+  - commands: ['resize --width -2%']
+    bindings: ['control+alt+NumPad8']
+  - commands: ['resize --width +2%']
+    bindings: ['control+alt+NumPad9']
+  - commands: ['resize --height -2%']
+    bindings: ['control+alt+shift+NumPad8']
+  - commands: ['resize --height +2%']
+    bindings: ['control+alt+shift+NumPad9']
+
+  - commands: ['focus --workspace 1']
+    bindings: ['control+alt+NumPad1']
+  - commands: ['focus --workspace 2']
+    bindings: ['control+alt+NumPad2']
+  - commands: ['focus --workspace 3']
+    bindings: ['control+alt+NumPad3']
+  - commands: ['focus --workspace 4']
+    bindings: ['control+alt+NumPad4']
+  - commands: ['focus --workspace 5']
+    bindings: ['control+alt+NumPad5']
+  - commands: ['move --workspace 1']
+    bindings: ['control+alt+shift+NumPad1']
+  - commands: ['move --workspace 2']
+    bindings: ['control+alt+shift+NumPad2']
+  - commands: ['move --workspace 3']
+    bindings: ['control+alt+shift+NumPad3']
+  - commands: ['move --workspace 4']
+    bindings: ['control+alt+shift+NumPad4']
+  - commands: ['move --workspace 5']
+    bindings: ['control+alt+shift+NumPad5']
+
+  - commands: ['focus --workspace P']
+    bindings: ['control+alt+f20']
+  - commands: ['focus --workspace T']
+    bindings: ['control+alt+f21']
+  - commands: ['focus --workspace C']
+    bindings: ['control+alt+f23']
+  - commands: ['focus --workspace V']
+    bindings: ['control+alt+f24']
+  - commands: ['focus --workspace X']
+    bindings: ['control+alt+f22']
+  - commands: ['move --workspace P']
+    bindings: ['control+alt+shift+f20']
+  - commands: ['move --workspace T']
+    bindings: ['control+alt+shift+f21']
+  - commands: ['move --workspace C']
+    bindings: ['control+alt+shift+f23']
+  - commands: ['move --workspace V']
+    bindings: ['control+alt+shift+f24']
+  - commands: ['move --workspace X']
+    bindings: ['control+alt+shift+f22']
+

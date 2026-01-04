@@ -1,0 +1,75 @@
+set scrolloff=10
+
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+
+set tabstop=4
+set shiftwidth=0  " match tabstop
+set expandtab
+set clipboard=unnamed
+
+
+" --- common sense ---
+
+noremap U <C-R>
+nnoremap Y y$
+nnoremap Q @@
+
+
+" --- navigation ---
+
+" higher
+noremap h 10k
+" kick
+noremap k 10j
+" justify
+noremap j zz
+
+noremap \ <C-O>
+noremap \| <C-I>
+
+noremap - ^
+noremap _ $
+
+
+" --- indenting ---
+
+nnoremap <lt> <lt><lt>
+nnoremap > >>
+" gv = stay in visual mode
+xnoremap <lt> <lt>gv
+xnoremap > >gv
+
+
+" --- yanking ---
+
+xnoremap p P
+xnoremap P p
+
+nnoremap H yy
+xnoremap H y
+
+" lift
+noremap l d
+nnoremap L D
+xnoremap L d
+
+" Rip
+nnoremap R dd
+xnoremap R d
+
+
+" --- deleting ---
+
+nnoremap X "_dd
+xnoremap X "_d
+
+noremap x "_x
+
+noremap d "_d
+noremap D "_D
+
+noremap c "_c
+noremap C "_C

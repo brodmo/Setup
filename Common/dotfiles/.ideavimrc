@@ -1,0 +1,38 @@
+source ~/.vimrc
+
+set scrolloff=5
+
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+
+sethandler a:ide
+" silly on Windows
+" sethandler <C-V> a:vim
+
+set ideajoin " semantic join
+set clipboard+=ideaput " semantic paste (?)
+
+Plug 'machakann/vim-highlightedyank' " highlight yanked text
+packadd matchit " better % motion
+
+set NERDTree
+
+" ys<object>( add surrounding
+" ds( delete surrounding
+" cs({ change surrounding
+set surround
+
+" ii object for indentation level
+" ai object for indentation level and line above
+" aI object for indentation level and lines above and below
+Plug 'michaeljsmith/vim-indent-object'
+
+noremap g; :action JumpToLastChange<Enter>
+
+noremap <space> <Nop>
+let mapleader=" "
+noremap <leader>w [w
+noremap <leader>e ]w
+noremap <leader>b [b

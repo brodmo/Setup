@@ -1,0 +1,5 @@
+#!/bin/bash
+brew install ripgrep fd fzf zoxide yazi
+brew install neovim lazygit git-delta sheldon yqrashawn/goku/goku
+brew install --cask karabiner-elements linearmouse espanso raycast jordanbaird-ice flashspace swift-shift
+brew install --cask ghostty sublime-text obsidian megasync keeweb firefox spotify jetbrains-toolbox docker

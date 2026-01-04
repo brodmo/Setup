@@ -1,0 +1,8 @@
+[mgr]
+ratio = [1, 2, 3]
+
+[opener]
+edit = [
+    { run = '$EDITOR "$@"', block = true, for = "unix" },
+    { run = "nvim %*", block = true, for = "windows" },
+]
