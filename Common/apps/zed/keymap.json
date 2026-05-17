@@ -1,0 +1,26 @@
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-j": "terminal_panel::ToggleFocus",
+      "cmd-r": "project_panel::ToggleFocus",
+      "cmd-?": "agent::ToggleFocus",
+    },
+  },
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      "<": ["workspace::SendKeystrokes", "< g v"],
+      ">": ["workspace::SendKeystrokes", "> g v"],
+    },
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "h": ["workspace::SendKeystrokes", "ctrl-o"],
+      "j": ["workspace::SendKeystrokes", "ctrl-i"],
+      "k": ["workspace::SendKeystrokes", "\" _ d d"],
+      "l": "vim::FirstNonWhitespace",
+    },
+  },
+]
