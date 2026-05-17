@@ -1,0 +1,11 @@
+groups:
+- name: Files
+  hotkey: Cmd+Opt+Ctrl+F
+  apps:
+  - com.apple.finder
+  - com.apple.Preview
+  - com.sublimetext.4
+- name: Terminal
+  hotkey: Cmd+Opt+Ctrl+T
+  apps:
+  - com.apple.Terminal

@@ -7,7 +7,6 @@ display = 'Main'
 id = '91C84EE3-B74A-41A7-8EA0-E9119A11AAD0'
 name = 'Web'
 openAppsOnActivation = false
-shortcut = 'cmd+ctrl+opt+w'
 symbolIconName = 'globe'
 
 [profiles.workspaces.appToFocus]
@@ -29,7 +28,7 @@ name = 'Brave Browser'
 display = 'Main'
 id = '65806886-EEEB-4FD1-8CE3-0798BA0E38D4'
 name = 'Files'
-shortcut = 'cmd+ctrl+opt+f'
+openAppsOnActivation = false
 symbolIconName = 'document'
 
 [[profiles.workspaces.apps]]
@@ -58,11 +57,27 @@ iconPath = '/Applications/Notion Calendar.app/Contents/Resources/electron.icns'
 name = 'Notion Calendar'
 
 [[profiles.workspaces]]
+display = 'Secondary'
+id = '24D7D507-5FBC-4F01-A58E-2E9717A5ABD8'
+name = 'Songs'
+openAppsOnActivation = true
+symbolIconName = 'music.note'
+
+[profiles.workspaces.appToFocus]
+bundleIdentifier = 'com.spotify.client'
+iconPath = '/Applications/Spotify.app/Contents/Resources/AppIcon.icns'
+name = 'Spotify'
+
+[[profiles.workspaces.apps]]
+bundleIdentifier = 'com.spotify.client'
+iconPath = '/Applications/Spotify.app/Contents/Resources/AppIcon.icns'
+name = 'Spotify'
+
+[[profiles.workspaces]]
 display = 'Main'
 id = 'ADB483EF-C1F8-4B3D-80C7-E79D4681E3C4'
 name = 'Programming'
 openAppsOnActivation = false
-shortcut = 'cmd+ctrl+opt+p'
 symbolIconName = 'curlybraces'
 
 [profiles.workspaces.appToFocus]
@@ -101,11 +116,100 @@ iconPath = '/Users/Moritz/Applications/RustRover.app/Contents/Resources/rustrove
 name = 'RustRover'
 
 [[profiles.workspaces]]
+display = 'Built-in Retina Display'
+id = '40D620E1-2182-4EB9-9366-220E7AF8B66B'
+name = 'Zoom'
+openAppsOnActivation = false
+symbolIconName = 'video'
+
+[[profiles.workspaces.apps]]
+bundleIdentifier = 'com.microsoft.teams2'
+iconPath = '/Applications/Microsoft Teams.app/Contents/Resources/icon.icns'
+name = 'Microsoft Teams'
+
+[[profiles.workspaces.apps]]
+bundleIdentifier = 'us.zoom.xos'
+iconPath = '/Applications/zoom.us.app/Contents/Resources/ZPLogo.icns'
+name = 'zoom.us'
+
+[[profiles.workspaces]]
+display = 'Secondary'
+id = '8E9A2780-8954-4E3C-8C45-565C22A8F979'
+name = 'Read'
+openAppsOnActivation = false
+symbolIconName = 'book'
+
+[[profiles.workspaces.apps]]
+bundleIdentifier = 'md.obsidian'
+iconPath = '/Applications/Obsidian.app/Contents/Resources/icon.icns'
+name = 'Obsidian'
+
+[[profiles.workspaces.apps]]
+bundleIdentifier = 'io.remnote'
+iconPath = '/Applications/RemNote.app/Contents/Resources/icon.icns'
+name = 'RemNote'
+
+[[profiles.workspaces]]
+display = 'Secondary'
+id = 'CBE328E7-B952-4B65-8285-D78846855E63'
+name = 'Terminal'
+openAppsOnActivation = true
+symbolIconName = 'apple.terminal'
+
+[[profiles.workspaces.apps]]
+bundleIdentifier = 'com.mitchellh.ghostty'
+iconPath = '/Applications/Ghostty.app/Contents/Resources/AppIcon.icns'
+name = 'Ghostty'
+
+[[profiles.workspaces.apps]]
+bundleIdentifier = 'com.example.GroupCtrl'
+iconPath = '/Users/Moritz/Dev/GroupCtrl/target/dx/GroupCtrl/debug/macos/GroupCtrl.app/Contents/Resources/icon.icns'
+name = 'GroupCtrl'
+
+[[profiles.workspaces]]
+display = 'Secondary'
+id = '5C608563-2C59-4929-AAA5-C091BF25903C'
+name = 'eXtra web'
+openAppsOnActivation = true
+symbolIconName = 'binoculars.fill'
+
+[profiles.workspaces.appToFocus]
+bundleIdentifier = 'com.google.Chrome'
+iconPath = '/Applications/Google Chrome.app/Contents/Resources/app.icns'
+name = 'Google Chrome'
+
+[[profiles.workspaces.apps]]
+bundleIdentifier = 'com.google.Chrome'
+iconPath = '/Applications/Google Chrome.app/Contents/Resources/app.icns'
+name = 'Google Chrome'
+
+[[profiles.workspaces]]
+display = 'DELL S2725QC'
+id = '3C83931C-30AF-4240-A7E2-AAF0B839118E'
+name = 'Check'
+openAppsOnActivation = true
+symbolIconName = 'checklist'
+
+[profiles.workspaces.appToFocus]
+bundleIdentifier = 'com.linear'
+iconPath = '/Applications/Linear.app/Contents/Resources/icon.icns'
+name = 'Linear'
+
+[[profiles.workspaces.apps]]
+bundleIdentifier = 'com.linear'
+iconPath = '/Applications/Linear.app/Contents/Resources/icon.icns'
+name = 'Linear'
+
+[[profiles.workspaces.apps]]
+bundleIdentifier = 'com.TickTick.task.mac'
+iconPath = '/Applications/TickTick.app/Contents/Resources/AppIcon.icns'
+name = 'TickTick'
+
+[[profiles.workspaces]]
 display = 'Secondary'
 id = '95F04D28-6A5A-45A6-BB5A-333B8A1614AF'
 name = 'AI'
 openAppsOnActivation = false
-shortcut = 'cmd+ctrl+opt+a'
 symbolIconName = 'bonjour'
 
 [[profiles.workspaces.apps]]
@@ -122,120 +226,3 @@ name = 'Claude'
 bundleIdentifier = 'com.apple.Safari.WebApp.4E0A62BE-C683-4E45-B299-040807FB283A'
 iconPath = '/Users/Moritz/Applications/Google AI Studio.app/Contents/Resources/ApplicationIcon.icns'
 name = 'Google AI Studio'
-
-[[profiles.workspaces]]
-display = 'Secondary'
-id = '8E9A2780-8954-4E3C-8C45-565C22A8F979'
-name = 'Read'
-openAppsOnActivation = false
-shortcut = 'cmd+ctrl+opt+r'
-symbolIconName = 'book'
-
-[[profiles.workspaces.apps]]
-bundleIdentifier = 'md.obsidian'
-iconPath = '/Applications/Obsidian.app/Contents/Resources/icon.icns'
-name = 'Obsidian'
-
-[[profiles.workspaces.apps]]
-bundleIdentifier = 'io.remnote'
-iconPath = '/Applications/RemNote.app/Contents/Resources/icon.icns'
-name = 'RemNote'
-
-[[profiles.workspaces]]
-display = 'Secondary'
-id = '24D7D507-5FBC-4F01-A58E-2E9717A5ABD8'
-name = 'Songs'
-openAppsOnActivation = true
-shortcut = 'cmd+ctrl+opt+s'
-symbolIconName = 'music.note'
-
-[profiles.workspaces.appToFocus]
-bundleIdentifier = 'com.spotify.client'
-iconPath = '/Applications/Spotify.app/Contents/Resources/AppIcon.icns'
-name = 'Spotify'
-
-[[profiles.workspaces.apps]]
-bundleIdentifier = 'com.spotify.client'
-iconPath = '/Applications/Spotify.app/Contents/Resources/AppIcon.icns'
-name = 'Spotify'
-
-[[profiles.workspaces]]
-display = 'Secondary'
-id = 'CBE328E7-B952-4B65-8285-D78846855E63'
-name = 'Terminal'
-openAppsOnActivation = true
-shortcut = 'cmd+ctrl+opt+t'
-symbolIconName = 'apple.terminal'
-
-[[profiles.workspaces.apps]]
-bundleIdentifier = 'com.mitchellh.ghostty'
-iconPath = '/Applications/Ghostty.app/Contents/Resources/AppIcon.icns'
-name = 'Ghostty'
-
-[[profiles.workspaces]]
-display = 'Built-in Retina Display'
-id = '40D620E1-2182-4EB9-9366-220E7AF8B66B'
-name = 'Zoom'
-openAppsOnActivation = false
-shortcut = 'cmd+ctrl+opt+z'
-symbolIconName = 'video'
-
-[[profiles.workspaces.apps]]
-bundleIdentifier = 'com.microsoft.teams2'
-iconPath = '/Applications/Microsoft Teams.app/Contents/Resources/icon.icns'
-name = 'Microsoft Teams'
-
-[[profiles.workspaces.apps]]
-bundleIdentifier = 'us.zoom.xos'
-iconPath = '/Applications/zoom.us.app/Contents/Resources/ZPLogo.icns'
-name = 'zoom.us'
-
-[[profiles.workspaces]]
-display = 'Secondary'
-id = '5C608563-2C59-4929-AAA5-C091BF25903C'
-name = 'eXtra web'
-openAppsOnActivation = true
-shortcut = 'cmd+ctrl+opt+x'
-symbolIconName = 'binoculars.fill'
-
-[profiles.workspaces.appToFocus]
-bundleIdentifier = 'com.google.Chrome'
-iconPath = '/Applications/Google Chrome.app/Contents/Resources/app.icns'
-name = 'Google Chrome'
-
-[[profiles.workspaces.apps]]
-bundleIdentifier = 'com.google.Chrome'
-iconPath = '/Applications/Google Chrome.app/Contents/Resources/app.icns'
-name = 'Google Chrome'
-
-[[profiles.workspaces]]
-display = 'Secondary'
-id = '7E4EF5A0-E6AB-4132-9CD8-FB489C3535ED'
-name = 'Chat'
-shortcut = 'cmd+ctrl+opt+c'
-symbolIconName = 'message'
-
-[[profiles.workspaces.apps]]
-bundleIdentifier = 'com.tinyspeck.slackmacgap'
-iconPath = '/Applications/Slack.app/Contents/Resources/electron.icns'
-name = 'Slack'
-
-[[profiles.workspaces.apps]]
-bundleIdentifier = 'com.hnc.Discord'
-iconPath = '/Applications/Discord.app/Contents/Resources/electron.icns'
-name = 'Discord'
-
-[[profiles.workspaces.apps]]
-bundleIdentifier = 'net.whatsapp.WhatsApp'
-iconPath = '/Applications/WhatsApp.localized/WhatsApp.app/Contents/Resources/AppIconCatalystRelease.icns'
-name = "\u200EWhatsApp"
-
-[[profiles.workspaces.apps]]
-bundleIdentifier = 'ru.keepcoder.Telegram'
-iconPath = '/Applications/Telegram.app/Contents/Resources/AppIcon.icns'
-name = 'Telegram'
-
-[[profiles.workspaces.apps]]
-bundleIdentifier = 'org.whispersystems.signal-desktop'
-iconPath = '/Applications/Signal.app/Contents/Resources/icon.icns'
-name = 'Signal'

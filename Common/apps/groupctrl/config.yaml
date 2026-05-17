@@ -1,0 +1,88 @@
+groups:
+- name: Web
+  hotkey: Cmd+Opt+Ctrl+W
+  apps:
+  - com.brave.Browser
+  - com.markmcguill.strongbox.mac
+  - com.apple.Safari
+- name: Files
+  hotkey: Cmd+Opt+Ctrl+E
+  apps:
+  - com.apple.Preview
+  - com.sublimetext.4
+  - com.microsoft.Excel
+  - org.zotero.zotero
+  - com.jgraph.drawio.desktop
+- name: Programming
+  hotkey: Cmd+Opt+Ctrl+R
+  apps:
+  - com.jetbrains.intellij
+  - com.jetbrains.pycharm
+  - com.jetbrains.rustrover
+  - com.jetbrains.WebStorm
+  - com.microsoft.VSCode
+  - dev.zed.Zed
+- name: AI
+  hotkey: Cmd+Opt+Ctrl+A
+  apps:
+  - app.zen-browser.zen
+- name: Read
+  hotkey: Cmd+Opt+Ctrl+S
+  apps:
+  - md.obsidian
+- name: Songs
+  hotkey: Cmd+Opt+Ctrl+D
+  apps:
+  - com.spotify.client
+- name: Terminal
+  hotkey: Cmd+Opt+Ctrl+F
+  apps:
+  - com.mitchellh.ghostty
+- name: eXtra web
+  hotkey: Cmd+Opt+Ctrl+X
+  apps:
+  - com.google.Chrome
+- name: Check
+  hotkey: Cmd+Opt+Ctrl+C
+  apps:
+  - com.TickTick.task.mac
+  - com.todoist.mac.Todoist
+  - com.linear
+- name: LARGE
+  hotkey: Cmd+Opt+Ctrl+U
+  apps:
+  - com.hnc.Discord
+  - com.grammarly.ProjectLlama
+  - com.paulthetall.portingkit
+  - com.apple.Automator
+  - com.microsoft.Word
+  - com.microsoft.Excel
+  - com.microsoft.onenote.mac
+  - com.microsoft.Outlook
+  - com.microsoft.Powerpoint
+  - com.adobe.adobedigitaleditions.app
+  - sh.cider.genten.mac
+  - com.apple.iCal
+  - com.google.antigravity
+  - net.kovidgoyal.calibre
+  - com.apple.Chess
+  - com.apple.VoiceMemos
+  - com.governikus.ausweisapp2
+  - com.talkingsmall.Albums
+  - com.apple.AppStore
+  - com.apple.iBooksX
+  - com.apple.calculator
+  - edu.ucsd.cs.mmccrack.bibdesk
+  - com.apple.apps.launcher
+  - com.apple.clock
+  - design.yugen.Flow
+  - com.docker.docker
+  - com.apple.findmy
+  - epp.package.modeling
+  - com.jgraph.drawio.desktop
+  - company.thebrowser.Browser
+- name: Zoom
+  hotkey: Cmd+Opt+Ctrl+Z
+  apps:
+  - com.microsoft.teams2
+  - us.zoom.xos
