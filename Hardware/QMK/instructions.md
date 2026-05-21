@@ -1,0 +1,6 @@
+- Clone QMK firmware
+- Put keymap dir into keyboards/nuphy/air75_v2/ansi/keymaps
+- qmk flash -kb nuphy/air75_v2/ansi -km custom
+- Put keyboard into wireless mode, plug in while holding Escape
+- Fn+Down, Fn+M+Down to turn off lights
+- Win for default, Mac for built-in hyper layer
