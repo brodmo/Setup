@@ -1,9 +1,55 @@
 ---@diagnostic disable-next-line: undefined-global
 local hs = hs
 
+local hyper = hs.hotkey.modal.new()
+
+hs.hotkey.bind({}, "F18", function()
+	hyper:enter()
+end, function()
+	hyper:exit()
+end)
+
+-- Helpers
 local function bindHyper(key, fn)
-	hs.hotkey.bind({ "ctrl", "alt", "cmd" }, key, fn)
+	hyper:bind({}, key, fn, nil, fn) -- pressed + repeat
 end
+
+local function sendKey(mods, key)
+	return function()
+		hs.eventtap.event.newKeyEvent(mods, key, true):post()
+		hs.eventtap.event.newKeyEvent(mods, key, false):post()
+	end
+end
+
+local function mediaKey(key)
+	return function()
+		hs.eventtap.event.newSystemKeyEvent(key, true):post()
+		hs.eventtap.event.newSystemKeyEvent(key, false):post()
+	end
+end
+
+-- Arrows (hjkl)
+bindHyper("h", sendKey({}, "left"))
+bindHyper("n", sendKey({}, "down"))
+bindHyper("e", sendKey({}, "up"))
+bindHyper("i", sendKey({}, "right"))
+
+-- Page nav
+bindHyper(",", sendKey({}, "pageup"))
+bindHyper(".", sendKey({}, "pagedown"))
+
+-- Forward delete
+bindHyper("delete", sendKey({}, "forwarddelete"))
+
+-- Media
+bindHyper("escape", mediaKey("PLAY"))
+bindHyper("f1", mediaKey("SOUND_DOWN"))
+bindHyper("f2", mediaKey("SOUND_UP"))
+
+-- Tab controls
+bindHyper("tab", sendKey({ "ctrl" }, "tab"))
+bindHyper("2", sendKey({ "ctrl", "shift" }, "["))
+bindHyper("3", sendKey({ "ctrl", "shift" }, "]"))
 
 --- APP HOTKEYS ---
 
