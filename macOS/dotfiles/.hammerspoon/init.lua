@@ -112,7 +112,7 @@ local function centerWindow(win, x_scale, y_scale)
 end
 
 local function window()
-	return hs.window().focusedWindow()
+	return hs.window.focusedWindow()
 end
 
 bindHyper("Left", function()
