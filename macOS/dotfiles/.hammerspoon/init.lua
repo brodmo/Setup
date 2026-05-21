@@ -111,24 +111,24 @@ local function centerWindow(win, x_scale, y_scale)
 	resizeWindow(win, x_offset, y_offset, x_scale, y_scale)
 end
 
-local function win()
+local function window()
 	return hs.window().focusedWindow()
 end
 
 bindHyper("Left", function()
-	tileWindow(win(), "left")
+	tileWindow(window(), "left")
 end)
 
 bindHyper("Right", function()
-	tileWindow(win(), "right")
+	tileWindow(window(), "right")
 end)
 
 bindHyper("Up", function()
-	win():maximize()
+	window():maximize()
 end)
 
 bindHyper("Down", function()
-	centerWindow(win(), 0.7, 0.8)
+	centerWindow(window(), 0.7, 0.8)
 end)
 
 --- MOVE BETWEEN DISPLAYS ---
@@ -177,8 +177,8 @@ local function screenInDirection(currentScreen, direction)
 	return nil
 end
 
-hs.hotkey.bind({ "ctrl", "alt", "cmd" }, "[", function()
-	local win = hs.window.focusedWindow()
+bindHyper("[", function()
+	local win = window()
 	local currentScreen = win:screen()
 	local prevScreen = screenInDirection(currentScreen, "west") or screenInDirection(currentScreen, "north")
 	if prevScreen then
@@ -186,8 +186,8 @@ hs.hotkey.bind({ "ctrl", "alt", "cmd" }, "[", function()
 	end
 end)
 
-hs.hotkey.bind({ "ctrl", "alt", "cmd" }, "]", function()
-	local win = hs.window.focusedWindow()
+bindHyper("]", function()
+	local win = window()
 	local currentScreen = win:screen()
 	local nextScreen = screenInDirection(currentScreen, "east") or screenInDirection(currentScreen, "south")
 	if nextScreen then
