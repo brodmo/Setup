@@ -1,17 +1,29 @@
 ---@diagnostic disable-next-line: undefined-global
 local hs = hs
 
+--- HELPERS ---
+
 local hyper = hs.hotkey.modal.new()
 
+-- Can also use hidutil instead of Karabiner to map Caps Lock to f18
+-- hs.execute([[/usr/bin/hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000039,"HIDKeyboardModifierMappingDst":0x70000006D}]}']])
+
 hs.hotkey.bind({}, "F18", function()
+	hyper.triggered = false
 	hyper:enter()
 end, function()
 	hyper:exit()
+	if not hyper.triggered then
+		hs.eventtap.keyStroke({}, "escape", 0)
+	end
 end)
 
--- Helpers
 local function bindHyper(key, fn)
-	hyper:bind({}, key, fn, nil, fn) -- pressed + repeat
+	local wrapped = function()
+		hyper.triggered = true
+		fn()
+	end
+	hyper:bind({}, key, wrapped, nil, wrapped)
 end
 
 local function sendKey(mods, key)
@@ -28,28 +40,22 @@ local function mediaKey(key)
 	end
 end
 
--- Arrows (hjkl)
+--- HYPER CONTROLS ---
+
 bindHyper("h", sendKey({}, "left"))
 bindHyper("n", sendKey({}, "down"))
 bindHyper("e", sendKey({}, "up"))
 bindHyper("i", sendKey({}, "right"))
 
--- Page nav
 bindHyper(",", sendKey({}, "pageup"))
 bindHyper(".", sendKey({}, "pagedown"))
 
--- Forward delete
-bindHyper("delete", sendKey({}, "forwarddelete"))
-
--- Media
 bindHyper("escape", mediaKey("PLAY"))
 bindHyper("f1", mediaKey("SOUND_DOWN"))
 bindHyper("f2", mediaKey("SOUND_UP"))
 
--- Tab controls
-bindHyper("tab", sendKey({ "ctrl" }, "tab"))
-bindHyper("2", sendKey({ "ctrl", "shift" }, "["))
-bindHyper("3", sendKey({ "ctrl", "shift" }, "]"))
+bindHyper("2", sendKey({ "cmd", "shift" }, "["))
+bindHyper("3", sendKey({ "cmd", "shift" }, "]"))
 
 --- APP HOTKEYS ---
 

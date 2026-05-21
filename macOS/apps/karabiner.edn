@@ -19,7 +19,7 @@
             [:##right_command :right_option]
         ]}
         {:des "hyper key" :rules [
-          [:##caps_lock :f18 nil {:alone :escape}]
+          [:##caps_lock :f18]
         ]}
     ]
 }
