@@ -18,8 +18,8 @@
             [:##right_option :right_command]
             [:##right_command :right_option]
         ]}
-        {:des "hyper key" :rules [
-          [:##caps_lock :f18]
-        ]}
+        ; {:des "hyper key" :rules [
+        ;   [:##caps_lock :f18]
+        ; ]}
     ]
 }

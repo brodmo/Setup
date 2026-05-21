@@ -5,8 +5,9 @@ local hs = hs
 
 local hyper = hs.hotkey.modal.new()
 
--- Can also use hidutil instead of Karabiner to map Caps Lock to f18
--- hs.execute([[/usr/bin/hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000039,"HIDKeyboardModifierMappingDst":0x70000006D}]}']])
+hs.execute( -- remap caps lock to f18
+	[[/usr/bin/hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000039,"HIDKeyboardModifierMappingDst":0x70000006D}]}']]
+)
 
 hs.hotkey.bind({}, "F18", function()
 	hyper.triggered = false
