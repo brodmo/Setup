@@ -1,6 +1,33 @@
 ---@diagnostic disable-next-line: undefined-global
 local hs = hs
 
+local function bindHyper(key, fn)
+	hs.hotkey.bind({ "ctrl", "alt", "cmd" }, key, fn)
+end
+
+--- APP HOTKEYS ---
+
+local apps = {
+	W = "Brave Browser", -- Web
+	F = "draw.io", -- Files
+	P = "Zed", -- Programming
+
+	A = "Zen", -- AI
+	R = "Obsidian", -- Read
+	S = "Spotify", -- Spotify
+	T = "Ghostty", -- Terminal
+
+	Z = "Zotero",
+	X = "Chrome", -- eXtra browser
+	C = "Todoist", -- Checklist
+}
+
+for key, app in pairs(apps) do
+	bindHyper(key, function()
+		hs.application.launchOrFocus(app)
+	end)
+end
+
 --- MOVE ON DISPLAY ---
 
 local function resizeWindow(win, x, y, w, h)
@@ -31,24 +58,24 @@ local function centerWindow(win, x_scale, y_scale)
 	resizeWindow(win, x_offset, y_offset, x_scale, y_scale)
 end
 
-hs.hotkey.bind({ "ctrl", "alt", "cmd" }, "Left", function()
-	local win = hs.window.focusedWindow()
-	tileWindow(win, "left")
+local function win()
+	return hs.window().focusedWindow()
+end
+
+bindHyper("Left", function()
+	tileWindow(win(), "left")
 end)
 
-hs.hotkey.bind({ "ctrl", "alt", "cmd" }, "Right", function()
-	local win = hs.window.focusedWindow()
-	tileWindow(win, "right")
+bindHyper("Right", function()
+	tileWindow(win(), "right")
 end)
 
-hs.hotkey.bind({ "ctrl", "alt", "cmd" }, "Up", function()
-	local win = hs.window.focusedWindow()
-	win:maximize()
+bindHyper("Up", function()
+	win():maximize()
 end)
 
-hs.hotkey.bind({ "ctrl", "alt", "cmd" }, "Down", function()
-	local win = hs.window.focusedWindow()
-	centerWindow(win, 0.7, 0.8)
+bindHyper("Down", function()
+	centerWindow(win(), 0.7, 0.8)
 end)
 
 --- MOVE BETWEEN DISPLAYS ---
