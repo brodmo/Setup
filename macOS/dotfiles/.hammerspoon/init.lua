@@ -19,10 +19,10 @@ util.bindApps({
 
 --- HYPER CONTROLS ---
 
-util.bindHyper("h", util.sendKey({}, "left"))
-util.bindHyper("n", util.sendKey({}, "down"))
-util.bindHyper("e", util.sendKey({}, "up"))
-util.bindHyper("i", util.sendKey({}, "right"))
+util.bindHyperNav("h", "left")
+util.bindHyperNav("n", "down")
+util.bindHyperNav("e", "up")
+util.bindHyperNav("i", "right")
 
 util.bindHyper(",", util.sendKey({}, "pageup"))
 util.bindHyper(".", util.sendKey({}, "pagedown"))

@@ -11,15 +11,53 @@ hs.execute( -- remap caps lock to f18
 
 local hyper = hs.hotkey.modal.new()
 
-hs.hotkey.bind({}, "F18", function()
-	hyper.triggered = false
-	hyper:enter()
-end, function()
-	hyper:exit()
-	if not hyper.triggered then
-		hs.eventtap.keyStroke({}, "escape", 0)
+-- Nav keys pass any held modifiers through to the target key (Karabiner-style
+-- wildcard). hs.hotkey needs an exact modifier match, so these go through an
+-- eventtap that rewrites the keycode while leaving the flags untouched.
+local navMap = {} -- e.g. { h = "left", ["."] = "pagedown" }
+
+-- We detect the hyper key (F18, remapped from caps lock) in the same eventtap
+-- rather than via hs.hotkey.bind, so it activates even when a modifier (e.g.
+-- opt) is already held — hs.hotkey would require an exact, modifier-free match.
+local F18 = hs.keycodes.map["f18"]
+local keyDown = hs.eventtap.event.types.keyDown
+local keyUp = hs.eventtap.event.types.keyUp
+
+local hyperActive = false
+
+local hyperTap = hs.eventtap.new({ keyDown, keyUp }, function(e)
+	local code = e:getKeyCode()
+
+	if code == F18 then
+		if e:getType() == keyDown then
+			if not hyperActive then -- ignore key-repeat while held
+				hyperActive = true
+				hyper.triggered = false
+				hyper:enter()
+			end
+		else
+			hyperActive = false
+			hyper:exit()
+			if not hyper.triggered then
+				hs.eventtap.keyStroke({}, "escape", 0)
+			end
+		end
+		return true -- swallow the hyper key itself
 	end
+
+	if hyperActive and e:getType() == keyDown then
+		local target = navMap[hs.keycodes.map[code]]
+		if target then
+			hyper.triggered = true
+			e:setKeyCode(hs.keycodes.map[target]) -- flags (opt/shift/cmd) pass through
+		end
+	end
+
+	return false
 end)
+
+M._hyperTap = hyperTap -- keep a reference so it isn't garbage-collected
+hyperTap:start()
 
 function M.bindHyper(key, fn)
 	local wrapped = function()
@@ -27,6 +65,10 @@ function M.bindHyper(key, fn)
 		fn()
 	end
 	hyper:bind({}, key, wrapped, nil, wrapped)
+end
+
+function M.bindHyperNav(key, arrow)
+	navMap[key] = arrow
 end
 
 function M.bindApps(apps)
