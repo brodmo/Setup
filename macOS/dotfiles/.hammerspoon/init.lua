@@ -19,42 +19,42 @@ util.bindApps({
 
 --- HYPER CONTROLS ---
 
-util.bindHyperNav("h", "left")
-util.bindHyperNav("n", "down")
-util.bindHyperNav("e", "up")
-util.bindHyperNav("i", "right")
+util.bindHyperKey("h", "left")
+util.bindHyperKey("n", "down")
+util.bindHyperKey("e", "up")
+util.bindHyperKey("i", "right")
 
-util.bindHyper(",", util.sendKey({}, "pageup"))
-util.bindHyper(".", util.sendKey({}, "pagedown"))
+util.bindHyperAction(",", util.sendKey({}, "pageup"))
+util.bindHyperAction(".", util.sendKey({}, "pagedown"))
 
-util.bindHyper("escape", util.mediaKey("PLAY"))
-util.bindHyper("f1", util.mediaKey("SOUND_DOWN"))
-util.bindHyper("f2", util.mediaKey("SOUND_UP"))
+util.bindHyperAction("escape", util.mediaKey("PLAY"))
+util.bindHyperAction("f1", util.mediaKey("SOUND_DOWN"))
+util.bindHyperAction("f2", util.mediaKey("SOUND_UP"))
 
-util.bindHyper("2", util.sendKey({ "cmd", "shift" }, "["))
-util.bindHyper("3", util.sendKey({ "cmd", "shift" }, "]"))
+util.bindHyperAction("2", util.sendKey({ "cmd", "shift" }, "["))
+util.bindHyperAction("3", util.sendKey({ "cmd", "shift" }, "]"))
 
 --- MOVE ON DISPLAY ---
 
-util.bindHyper("Left", function()
+util.bindHyperAction("Left", function()
 	util.tileWindow(util.window(), "left")
 end)
 
-util.bindHyper("Right", function()
+util.bindHyperAction("Right", function()
 	util.tileWindow(util.window(), "right")
 end)
 
-util.bindHyper("Up", function()
+util.bindHyperAction("Up", function()
 	util.window():maximize()
 end)
 
-util.bindHyper("Down", function()
+util.bindHyperAction("Down", function()
 	util.centerWindow(util.window(), 0.7, 0.8)
 end)
 
 --- MOVE BETWEEN DISPLAYS ---
 
-util.bindHyper("[", function()
+util.bindHyperAction("[", function()
 	local win = util.window()
 	local currentScreen = win:screen()
 	local prevScreen = util.screenInDirection(currentScreen, "west") or util.screenInDirection(currentScreen, "north")
@@ -63,7 +63,7 @@ util.bindHyper("[", function()
 	end
 end)
 
-util.bindHyper("]", function()
+util.bindHyperAction("]", function()
 	local win = util.window()
 	local currentScreen = win:screen()
 	local nextScreen = util.screenInDirection(currentScreen, "east") or util.screenInDirection(currentScreen, "south")
