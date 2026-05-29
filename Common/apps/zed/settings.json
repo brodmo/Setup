@@ -50,6 +50,8 @@
             "enabled": true,
           },
         },
+        // Lock to main.typ
+        "projectResolution": "lockDatabase",
       },
       "settings": {
         // Compile on save
