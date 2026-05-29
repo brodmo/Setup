@@ -34,6 +34,8 @@ setopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_DUPS
 zshaddhistory() { [[ $1 != (y|lg)$'\n' ]] }
 
+TMOUT=7200
+
 # === Setup ====
 
 touch ~/.hushlogin
