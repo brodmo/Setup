@@ -13,7 +13,7 @@ util.bindApps({
 	T = "Ghostty", -- Terminal
 
 	Z = "Zotero",
-	X = "Chrome", -- eXtra browser
+	X = "Google Chrome", -- eXtra browser
 	C = "Todoist", -- Checklist
 })
 
