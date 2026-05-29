@@ -10,11 +10,11 @@
   "autosave": "on_focus_change",
   "agent_servers": {
     "claude-acp": {
-      "type": "registry"
+      "type": "registry",
     },
     "opencode": {
-      "type": "registry"
-    }
+      "type": "registry",
+    },
   },
   "vim_mode": true,
   "ui_font_size": 14,
@@ -23,5 +23,15 @@
     "mode": "system",
     "light": "One Light",
     "dark": "One Dark",
+  },
+  "languages": {
+    "Lua": {
+      "formatter": {
+        "external": {
+          "command": "stylua",
+          "arguments": ["--stdin-filepath", "{buffer_path}", "-"],
+        },
+      },
+    },
   },
 }
