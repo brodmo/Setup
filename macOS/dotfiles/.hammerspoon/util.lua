@@ -16,10 +16,17 @@ local F18 = hs.keycodes.map["f18"]
 local keyDown = hs.eventtap.event.types.keyDown
 local keyUp = hs.eventtap.event.types.keyUp
 
+local SYNTH_MARK = 0xF18 -- tagged on events we post so the tap skips them instead of recursing
+local sourceUserData = hs.eventtap.event.properties.eventSourceUserData
+
 local hyperActive = false
 local hyperUsed = false -- did a binding fire? if not, a lone caps tap sends escape
 
 local hyperTap = hs.eventtap.new({ keyDown, keyUp }, function(e)
+	if e:getProperty(sourceUserData) == SYNTH_MARK then
+		return false
+	end
+
 	local code = e:getKeyCode()
 
 	if code == F18 then -- match by keycode so modifiers don't matter
@@ -41,11 +48,12 @@ local hyperTap = hs.eventtap.new({ keyDown, keyUp }, function(e)
 		return false
 	end
 
+	hyperUsed = true
+
 	local name = hs.keycodes.map[code]
 
 	local key = keyMap[name]
 	if key then
-		hyperUsed = true
 		e:setKeyCode(hs.keycodes.map[key]) -- modifiers pass through
 		return false
 	end
@@ -53,12 +61,12 @@ local hyperTap = hs.eventtap.new({ keyDown, keyUp }, function(e)
 	local action = actionMap[name]
 	local f = e:getFlags()
 	if action and not (f.cmd or f.alt or f.ctrl or f.shift) then -- no modifiers held
-		hyperUsed = true
 		action()
 		return true -- swallow
 	end
 
-	return false
+	M.sendKey({ "cmd", "alt", "ctrl" }, name)
+	return true
 end)
 
 M._hyperTap = hyperTap -- keep a reference so it isn't garbage-collected
@@ -81,17 +89,17 @@ function M.bindApps(apps)
 end
 
 function M.sendKey(mods, key)
-	return function()
-		hs.eventtap.event.newKeyEvent(mods, key, true):post()
-		hs.eventtap.event.newKeyEvent(mods, key, false):post()
-	end
+	local down = hs.eventtap.event.newKeyEvent(mods, key, true)
+	down:setProperty(sourceUserData, SYNTH_MARK)
+	down:post()
+	local up = hs.eventtap.event.newKeyEvent(mods, key, false)
+	up:setProperty(sourceUserData, SYNTH_MARK)
+	up:post()
 end
 
 function M.mediaKey(key)
-	return function()
-		hs.eventtap.event.newSystemKeyEvent(key, true):post()
-		hs.eventtap.event.newSystemKeyEvent(key, false):post()
-	end
+	hs.eventtap.event.newSystemKeyEvent(key, true):post()
+	hs.eventtap.event.newSystemKeyEvent(key, false):post()
 end
 
 --- MOVE ON DISPLAY ---
