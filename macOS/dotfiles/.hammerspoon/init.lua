@@ -15,6 +15,8 @@ util.bindApps({
 	Z = "Zotero",
 	X = "Google Chrome", -- eXtra browser
 	C = "Todoist", -- Checklist
+
+	[";"] = "System Settings",
 })
 
 --- HYPER CONTROLS ---
