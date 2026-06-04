@@ -7,6 +7,12 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "tabs": {
+    "file_icons": true,
+    "git_status": true,
+    "show_close_button": "hover",
+    "activate_on_close": "neighbour",
+  },
   "icon_theme": "Material Icon Theme",
   "agent": {
     "sidebar_side": "right",
