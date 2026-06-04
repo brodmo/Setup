@@ -13,7 +13,6 @@
     "dock": "right",
   },
   "project_panel": {
-    "hide_hidden": false,
     "dock": "left",
   },
   "buffer_font_features": {
@@ -52,9 +51,25 @@
   },
   "lsp": {
     "tinymist": {
+      "initialization_options": {
+        // Enable background preview
+        // Server will be running on 127.0.0.1:23635
+        "preview": {
+          "background": {
+            "enabled": true,
+          },
+        },
+      },
       "settings": {
-        "exportPdf": "never",
+        // Compile on save
+        // This will compile a PDF for the `main.typ` file in the project root.
+        "exportPdf": "onSave",
+        "outputPath": "$root/$name",
+
+        // Enable formatter
         "formatterMode": "typstyle",
+
+        // Lock to main.typ via tinymist.lock
         "projectResolution": "lockDatabase",
       },
     },
