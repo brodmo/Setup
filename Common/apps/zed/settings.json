@@ -38,7 +38,8 @@
   },
   "languages": {
     "Typst": {
-      "soft_wrap": "none",
+      "show_edit_predictions": false,
+      // "soft_wrap": "none",
     },
     "Lua": {
       "formatter": {
@@ -54,6 +55,14 @@
       "settings": {
         "exportPdf": "never",
         "formatterMode": "typstyle",
+      },
+    },
+    "ltex": {
+      "settings": {
+        "ltex": {
+          "enabled": ["typst"],
+          "language": "en-US",
+        },
       },
     },
   },
