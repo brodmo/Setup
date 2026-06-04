@@ -75,7 +75,7 @@
         // Enable formatter
         "formatterMode": "typstyle",
 
-        // Lock to main.typ via tinymist.lock
+        // Compile once manually with tinymist compile --save-lock to lock file via tinymist.lock
         "projectResolution": "lockDatabase",
       },
     },
