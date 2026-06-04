@@ -55,6 +55,7 @@
       "settings": {
         "exportPdf": "never",
         "formatterMode": "typstyle",
+        "projectResolution": "lockDatabase",
       },
     },
     "ltex": {
@@ -62,6 +63,9 @@
         "ltex": {
           "enabled": ["typst"],
           "language": "en-US",
+          "disabledRules": {
+            "en-US": ["EN_QUOTES"],
+          },
         },
       },
     },
