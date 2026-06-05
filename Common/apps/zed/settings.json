@@ -41,6 +41,9 @@
     "light": "One Light",
     "dark": "One Dark",
   },
+  "auto_install_extensions": {
+    "material-icon-theme": true,
+  },
   "languages": {
     "Typst": {
       "show_edit_predictions": false,
