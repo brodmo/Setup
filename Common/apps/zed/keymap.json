@@ -2,9 +2,12 @@
   {
     "context": "Workspace",
     "bindings": {
-      "cmd-j": "terminal_panel::ToggleFocus",
-      "cmd-r": "project_panel::ToggleFocus",
-      "cmd-?": "agent::ToggleFocus",
+      "cmd-s": "project_panel::ToggleFocus",
+      "cmd-t": "terminal_panel::ToggleFocus",
+      "cmd-r": "agent::ToggleFocus",
+      // focus center pane with cmd-e
+      // close panes with cmd-w
+      "cmd-shift-t": "project_symbols::Toggle", // shadowed by terminal
     },
   },
   {
