@@ -43,6 +43,7 @@
   },
   "auto_install_extensions": {
     "material-icon-theme": true,
+    "harper": true,
   },
   "languages": {
     "Typst": {
@@ -80,17 +81,6 @@
 
         // Compile once manually with tinymist compile --save-lock to lock file via tinymist.lock
         "projectResolution": "lockDatabase",
-      },
-    },
-    "ltex": {
-      "settings": {
-        "ltex": {
-          "enabled": ["typst"],
-          "language": "en-US",
-          "disabledRules": {
-            "en-US": ["EN_QUOTES"],
-          },
-        },
       },
     },
   },
