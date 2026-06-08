@@ -7,11 +7,13 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "buffer_font_family": "JetBrains Mono",
+  "ui_font_family": ".SystemUIFont",
   "tabs": {
     "file_icons": true,
     "git_status": true,
     "show_close_button": "hover",
-    "activate_on_close": "neighbour",
+    "activate_on_close": "history",
   },
   "icon_theme": "Material Icon Theme",
   "agent": {
