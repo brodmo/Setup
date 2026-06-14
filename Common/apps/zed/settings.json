@@ -23,6 +23,15 @@
   "project_panel": {
     "dock": "left",
   },
+  "outline_panel": {
+    "dock": "left",
+  },
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "git_panel": {
+    "dock": "left",
+  },
   "buffer_font_features": {
     "calt": false,
   },
@@ -35,6 +44,10 @@
       "type": "registry",
     },
     "opencode": {
+      "default_config_options": {
+        "mode": "build",
+        "model": "ki-toolbox/azure.gpt-5.5",
+      },
       "type": "registry",
     },
   },

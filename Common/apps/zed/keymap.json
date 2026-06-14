@@ -20,7 +20,7 @@
   {
     "context": "VimControl && !menu",
     "bindings": {
-      "g q": ["task::Spawn", { "task_name": "lazygit" }],
+      "g l": ["task::Spawn", { "task_name": "lazygit" }],
       "h": ["workspace::SendKeystrokes", "ctrl-o"],
       "j": ["workspace::SendKeystrokes", "ctrl-i"],
       "k": ["workspace::SendKeystrokes", "\" _ d d"],
