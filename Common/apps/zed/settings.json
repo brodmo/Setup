@@ -29,6 +29,9 @@
   "autosave": "on_focus_change",
   "agent_servers": {
     "claude-acp": {
+      "default_config_options": {
+        "mode": "default",
+      },
       "type": "registry",
     },
     "opencode": {
@@ -43,6 +46,21 @@
     "light": "One Light",
     "dark": "One Dark",
   },
+  "file_scan_exclusions": [
+    "**/.git",
+    "**/.svn",
+    "**/.hg",
+    "**/.jj",
+    "**/CVS",
+    "**/.DS_Store",
+    "**/Thumbs.db",
+    "**/.classpath",
+    "**/.settings",
+    "**/.$*.bkp", // draw.io backups
+    "**/.idea",
+    "**/.venv",
+    "**/.ruff_cache",
+  ],
   "auto_install_extensions": {
     "material-icon-theme": true,
     "harper": true,
