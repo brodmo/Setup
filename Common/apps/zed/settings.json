@@ -38,17 +38,23 @@
   "autosave": "on_focus_change",
   "agent_servers": {
     "claude-acp": {
+      "type": "registry",
       "default_config_options": {
+        "model": "opus",
         "mode": "default",
       },
-      "type": "registry",
     },
     "opencode": {
+      "type": "custom",
+      "command": "opencode",
+      "args": ["acp"],
+      "env": {
+        "OPENCODE_ENABLE_EXA": "true", // enable web search tool
+      },
       "default_config_options": {
         "mode": "build",
-        "model": "ki-toolbox/azure.gpt-5.5",
+        "model": "ki-toolbox/kit.minimax-m2.7-229b",
       },
-      "type": "registry",
     },
   },
   "vim_mode": true,
@@ -73,6 +79,7 @@
     "**/.idea",
     "**/.venv",
     "**/.ruff_cache",
+    "**/__pycache__",
   ],
   "auto_install_extensions": {
     "material-icon-theme": true,
