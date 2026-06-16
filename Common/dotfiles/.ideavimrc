@@ -29,7 +29,10 @@ set surround
 " aI object for indentation level and lines above and below
 Plug 'michaeljsmith/vim-indent-object'
 
-noremap g; :action JumpToLastChange<Enter>
+nmap g; <Action>(JumpToLastChange)
+nmap gl <Action>(Lazygit.Toggle)
+nmap gr <Action>(RenameElement)
+set idearefactormode=keep
 
 noremap <space> <Nop>
 let mapleader=" "
