@@ -88,6 +88,12 @@ function M.bindApps(apps)
 	end
 end
 
+function M.cycleApps(names)
+	local current = hs.application.frontmostApplication()
+	local idx = hs.fnutils.indexOf(names, current and current:name()) or 0
+	hs.application.launchOrFocus(names[(idx % #names) + 1])
+end
+
 function M.sendKey(mods, key)
 	local down = hs.eventtap.event.newKeyEvent(mods, key, true)
 	down:setProperty(sourceUserData, SYNTH_MARK)

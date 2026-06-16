@@ -5,7 +5,6 @@ local util = require("util")
 util.bindApps({
 	W = "Brave Browser", -- Web
 	F = "draw.io", -- Files
-	P = "Zed", -- Programming
 
 	A = "Zen", -- AI
 	R = "Obsidian", -- Read
@@ -18,6 +17,10 @@ util.bindApps({
 
 	[";"] = "System Settings",
 })
+
+util.bindHyperAction("p", function() -- Programming
+	util.cycleApps({ "Zed", "PyCharm" })
+end)
 
 --- HYPER CONTROLS ---
 
