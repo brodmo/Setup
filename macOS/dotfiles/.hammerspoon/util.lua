@@ -80,18 +80,29 @@ function M.bindHyperAction(key, fn)
 	actionMap[key:lower()] = fn
 end
 
-function M.bindApps(apps)
-	for key, app in pairs(apps) do
-		M.bindHyperAction(key, function()
-			hs.application.launchOrFocus(app)
-		end)
+local cycleState = {} -- bound key -> index to activate on its next press
+
+local function cycleApps(key, names)
+	local current = hs.application.frontmostApplication()
+	local currentIdx = hs.fnutils.indexOf(names, current and current:name())
+	if currentIdx then
+		cycleState[key] = (currentIdx % #names) + 1
 	end
+	hs.application.launchOrFocus(names[cycleState[key] or 1])
 end
 
-function M.cycleApps(names)
-	local current = hs.application.frontmostApplication()
-	local idx = hs.fnutils.indexOf(names, current and current:name()) or 0
-	hs.application.launchOrFocus(names[(idx % #names) + 1])
+function M.bindApps(apps)
+	for key, app in pairs(apps) do
+		if type(app) == "table" then -- a list of apps -> cycle through them
+			M.bindHyperAction(key, function()
+				cycleApps(key, app)
+			end)
+		else
+			M.bindHyperAction(key, function()
+				hs.application.launchOrFocus(app)
+			end)
+		end
+	end
 end
 
 function M.sendKey(mods, key)
