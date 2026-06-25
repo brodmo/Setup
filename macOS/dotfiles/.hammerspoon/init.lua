@@ -1,6 +1,9 @@
 local hyper = require("hyper")
 local display = require("display")
 local keys = require("keys")
+local timer = require("timer")
+
+timer.start() -- session-length clock in the menubar
 
 --- APP HOTKEYS ---
 
