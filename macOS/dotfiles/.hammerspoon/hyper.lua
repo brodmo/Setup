@@ -87,29 +87,4 @@ function M.bindAction(key, fn)
 	actionMap[key:lower()] = fn
 end
 
-local cycleState = {} -- bound key -> index to activate on its next press
-
-local function cycleApps(key, names)
-	local current = hs.application.frontmostApplication()
-	local currentIdx = hs.fnutils.indexOf(names, current and current:name())
-	if currentIdx then
-		cycleState[key] = (currentIdx % #names) + 1
-	end
-	hs.application.launchOrFocus(names[cycleState[key] or 1])
-end
-
-function M.bindApps(apps)
-	for key, app in pairs(apps) do
-		if type(app) == "table" then -- a list of apps -> cycle through them
-			M.bindAction(key, function()
-				cycleApps(key, app)
-			end)
-		else
-			M.bindAction(key, function()
-				hs.application.launchOrFocus(app)
-			end)
-		end
-	end
-end
-
 return M

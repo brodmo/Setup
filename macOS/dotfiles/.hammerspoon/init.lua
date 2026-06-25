@@ -1,13 +1,14 @@
 local hyper = require("hyper")
 local display = require("display")
 local keys = require("keys")
+local apps = require("apps")
 local timer = require("timer")
 
 timer.start() -- session-length clock in the menubar
 
 --- APP HOTKEYS ---
 
-hyper.bindApps({
+apps.bind({
 	W = "Brave Browser", -- Web
 	F = "draw.io", -- Files
 	P = { "Zed", "PyCharm" }, -- Programming
