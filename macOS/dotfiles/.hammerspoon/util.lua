@@ -21,6 +21,7 @@ local sourceUserData = hs.eventtap.event.properties.eventSourceUserData
 
 local hyperActive = false
 local hyperUsed = false -- did a binding fire? if not, a lone caps tap sends escape
+local activeHyperKeydowns = {} -- source keycode -> target keycode
 
 local hyperTap = hs.eventtap.new({ keyDown, keyUp }, function(e)
 	if e:getProperty(sourceUserData) == SYNTH_MARK then
@@ -44,17 +45,26 @@ local hyperTap = hs.eventtap.new({ keyDown, keyUp }, function(e)
 		return true -- swallow the hyper key itself
 	end
 
-	if not (hyperActive and e:getType() == keyDown) then
+	if e:getType() == keyUp then
+		if activeHyperKeydowns[code] then -- balance a remapped key's release, even if hyper was let go first
+			e:setKeyCode(activeHyperKeydowns[code])
+			activeHyperKeydowns[code] = nil
+		end
 		return false
 	end
 
+	if not hyperActive then
+		return false
+	end
 	hyperUsed = true
 
 	local name = hs.keycodes.map[code]
 
 	local key = keyMap[name]
 	if key then
-		e:setKeyCode(hs.keycodes.map[key]) -- modifiers pass through
+		local target = hs.keycodes.map[key]
+		e:setKeyCode(target) -- modifiers pass through
+		activeHyperKeydowns[code] = target
 		return false
 	end
 
