@@ -33,8 +33,6 @@ function M.centerWindow(win, x_scale, y_scale)
 	resizeWindow(win, x_offset, y_offset, x_scale, y_scale)
 end
 
-function M.window() return hs.window.focusedWindow() end
-
 --- MOVE BETWEEN DISPLAYS ---
 
 local function westOf(current, target) return (target.x + target.w) <= current.x end
@@ -74,9 +72,9 @@ local function screenInDirection(currentScreen, direction)
 end
 
 function M.moveToScreen(directions) -- first direction with a screen wins
-	local win = M.window()
+	local win = hs.window.focusedWindow()
 	local currentScreen = win:screen()
-	for _, direction in ipairs(directions) do
+	for _, direction in ipairs(directions) do -- ipair to keep order
 		local target = screenInDirection(currentScreen, direction)
 		if target then
 			win:moveToScreen(target)
