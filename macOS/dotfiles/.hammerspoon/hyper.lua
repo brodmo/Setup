@@ -79,12 +79,8 @@ end)
 M._hyperTap = hyperTap -- keep a reference so it isn't garbage-collected
 hyperTap:start()
 
-function M.bindKey(sourceKey, targetKey)
-	keyMap[sourceKey:lower()] = targetKey
-end
+function M.bindKey(sourceKey, targetKey) keyMap[sourceKey:lower()] = targetKey end
 
-function M.bindAction(key, fn)
-	actionMap[key:lower()] = fn
-end
+function M.bindAction(key, fn) actionMap[key:lower()] = fn end
 
 return M

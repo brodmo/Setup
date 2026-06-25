@@ -6,9 +6,7 @@ local M = {} -- Module
 local SYNTH_MARK = 0xF18 -- tagged on events we post so the tap skips them instead of recursing
 local sourceUserData = hs.eventtap.event.properties.eventSourceUserData
 
-function M.isSynthKey(e)
-	return e:getProperty(sourceUserData) == SYNTH_MARK
-end
+function M.isSynthKey(e) return e:getProperty(sourceUserData) == SYNTH_MARK end
 
 function M.sendKey(mods, key)
 	local down = hs.eventtap.event.newKeyEvent(mods, key, true)

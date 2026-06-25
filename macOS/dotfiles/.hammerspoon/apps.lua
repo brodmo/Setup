@@ -3,9 +3,7 @@ local hs = hs
 
 local M = {} -- Module
 
-function M.open(name)
-	hs.application.launchOrFocus(name)
-end
+function M.open(name) hs.application.launchOrFocus(name) end
 
 local cycleIndex = {} -- app to focus on the next press, keyed by the joined app list
 

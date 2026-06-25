@@ -33,27 +33,17 @@ function M.centerWindow(win, x_scale, y_scale)
 	resizeWindow(win, x_offset, y_offset, x_scale, y_scale)
 end
 
-function M.window()
-	return hs.window.focusedWindow()
-end
+function M.window() return hs.window.focusedWindow() end
 
 --- MOVE BETWEEN DISPLAYS ---
 
-local function westOf(current, target)
-	return (target.x + target.w) <= current.x
-end
+local function westOf(current, target) return (target.x + target.w) <= current.x end
 
-local function northOf(current, target)
-	return (target.y + target.h) <= current.y
-end
+local function northOf(current, target) return (target.y + target.h) <= current.y end
 
-local function eastOf(current, target)
-	return westOf(target, current)
-end
+local function eastOf(current, target) return westOf(target, current) end
 
-local function southOf(current, target)
-	return northOf(target, current)
-end
+local function southOf(current, target) return northOf(target, current) end
 
 local function screenInDirection(currentScreen, direction)
 	local targetScreen
