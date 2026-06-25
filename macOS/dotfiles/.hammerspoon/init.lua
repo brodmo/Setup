@@ -8,24 +8,44 @@ timer.start() -- session-length clock in the menubar
 
 --- APP HOTKEYS ---
 
-apps.bind({
-	W = "Brave Browser", -- Web
-	F = "draw.io", -- Files
-	P = { "Zed", "PyCharm" }, -- Programming
+hyper.bindAction("W", function()
+	apps.open("Brave Browser")
+end) -- Web
+hyper.bindAction("F", function()
+	apps.open("draw.io")
+end) -- Files
+hyper.bindAction("P", function()
+	apps.cycle({ "Zed", "PyCharm" })
+end) -- Programming
 
-	A = "Zen", -- AI
-	R = "Obsidian", -- Read
-	S = "Spotify",
-	T = "Ghostty", -- Terminal
+hyper.bindAction("A", function()
+	apps.open("Zen")
+end) -- AI
+hyper.bindAction("R", function()
+	apps.open("Obsidian")
+end) -- Read
+hyper.bindAction("S", function()
+	apps.open("Spotify")
+end)
+hyper.bindAction("T", function()
+	apps.open("Ghostty")
+end) -- Terminal
 
-	Z = "Zotero",
-	X = "Google Chrome", -- eXtra browser
-	C = "Todoist", -- Checklist
+hyper.bindAction("Z", function()
+	apps.open("Zotero")
+end)
+hyper.bindAction("X", function()
+	apps.open("Google Chrome")
+end) -- eXtra browser
+hyper.bindAction("C", function()
+	apps.open("Todoist")
+end) -- Checklist
 
-	[";"] = "System Settings",
-})
+hyper.bindAction(";", function()
+	apps.open("System Settings")
+end)
 
---- HYPER CONTROLS ---
+--- KEYBINDS ---
 
 hyper.bindKey("h", "left")
 hyper.bindKey("n", "down")
@@ -56,12 +76,11 @@ hyper.bindAction("3", function()
 	keys.sendKey({ "cmd", "shift" }, "]")
 end)
 
---- MOVE ON DISPLAY ---
+--- DISPLAY CONTROLS ---
 
 hyper.bindAction("Left", function()
 	display.tileWindow(display.window(), "left")
 end)
-
 hyper.bindAction("Right", function()
 	display.tileWindow(display.window(), "right")
 end)
@@ -69,29 +88,13 @@ end)
 hyper.bindAction("Up", function()
 	display.window():maximize()
 end)
-
 hyper.bindAction("Down", function()
 	display.centerWindow(display.window(), 0.7, 0.8)
 end)
 
---- MOVE BETWEEN DISPLAYS ---
-
 hyper.bindAction("[", function()
-	local win = display.window()
-	local currentScreen = win:screen()
-	local prevScreen = display.screenInDirection(currentScreen, "west")
-		or display.screenInDirection(currentScreen, "north")
-	if prevScreen then
-		win:moveToScreen(prevScreen)
-	end
+	display.moveToScreen({ "west", "north" })
 end)
-
 hyper.bindAction("]", function()
-	local win = display.window()
-	local currentScreen = win:screen()
-	local nextScreen = display.screenInDirection(currentScreen, "east")
-		or display.screenInDirection(currentScreen, "south")
-	if nextScreen then
-		win:moveToScreen(nextScreen)
-	end
+	display.moveToScreen({ "east", "south" })
 end)

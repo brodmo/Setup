@@ -7,6 +7,12 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "buffer_line_height": "comfortable",
+  "git": {
+    "inline_blame": {
+      "enabled": false
+    }
+  },
   "show_edit_predictions": false,
   "buffer_font_family": "JetBrains Mono",
   "ui_font_family": ".SystemUIFont",

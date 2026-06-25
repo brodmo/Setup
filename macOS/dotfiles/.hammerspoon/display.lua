@@ -55,7 +55,7 @@ local function southOf(current, target)
 	return northOf(target, current)
 end
 
-function M.screenInDirection(currentScreen, direction)
+local function screenInDirection(currentScreen, direction)
 	local targetScreen
 	local checkFunc
 
@@ -81,6 +81,18 @@ function M.screenInDirection(currentScreen, direction)
 		end
 	end
 	return nil
+end
+
+function M.moveToScreen(directions) -- first direction with a screen wins
+	local win = M.window()
+	local currentScreen = win:screen()
+	for _, direction in ipairs(directions) do
+		local target = screenInDirection(currentScreen, direction)
+		if target then
+			win:moveToScreen(target)
+			return
+		end
+	end
 end
 
 return M
