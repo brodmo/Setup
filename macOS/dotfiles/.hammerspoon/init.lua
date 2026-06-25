@@ -1,8 +1,10 @@
-local util = require("util")
+local hyper = require("hyper")
+local display = require("display")
+local keys = require("keys")
 
 --- APP HOTKEYS ---
 
-util.bindApps({
+hyper.bindApps({
 	W = "Brave Browser", -- Web
 	F = "draw.io", -- Files
 	P = { "Zed", "PyCharm" }, -- Programming
@@ -21,68 +23,70 @@ util.bindApps({
 
 --- HYPER CONTROLS ---
 
-util.bindHyperKey("h", "left")
-util.bindHyperKey("n", "down")
-util.bindHyperKey("e", "up")
-util.bindHyperKey("i", "right")
+hyper.bindKey("h", "left")
+hyper.bindKey("n", "down")
+hyper.bindKey("e", "up")
+hyper.bindKey("i", "right")
 
-util.bindHyperAction(",", function()
-	util.sendKey({}, "pageup")
+hyper.bindAction(",", function()
+	keys.sendKey({}, "pageup")
 end)
-util.bindHyperAction(".", function()
-	util.sendKey({}, "pagedown")
-end)
-
-util.bindHyperAction("escape", function()
-	util.mediaKey("PLAY")
-end)
-util.bindHyperAction("f1", function()
-	util.mediaKey("SOUND_DOWN")
-end)
-util.bindHyperAction("f2", function()
-	util.mediaKey("SOUND_UP")
+hyper.bindAction(".", function()
+	keys.sendKey({}, "pagedown")
 end)
 
-util.bindHyperAction("2", function()
-	util.sendKey({ "cmd", "shift" }, "[")
+hyper.bindAction("escape", function()
+	keys.sendMediaKey("PLAY")
 end)
-util.bindHyperAction("3", function()
-	util.sendKey({ "cmd", "shift" }, "]")
+hyper.bindAction("f1", function()
+	keys.sendMediaKey("SOUND_DOWN")
+end)
+hyper.bindAction("f2", function()
+	keys.sendMediaKey("SOUND_UP")
+end)
+
+hyper.bindAction("2", function()
+	keys.sendKey({ "cmd", "shift" }, "[")
+end)
+hyper.bindAction("3", function()
+	keys.sendKey({ "cmd", "shift" }, "]")
 end)
 
 --- MOVE ON DISPLAY ---
 
-util.bindHyperAction("Left", function()
-	util.tileWindow(util.window(), "left")
+hyper.bindAction("Left", function()
+	display.tileWindow(display.window(), "left")
 end)
 
-util.bindHyperAction("Right", function()
-	util.tileWindow(util.window(), "right")
+hyper.bindAction("Right", function()
+	display.tileWindow(display.window(), "right")
 end)
 
-util.bindHyperAction("Up", function()
-	util.window():maximize()
+hyper.bindAction("Up", function()
+	display.window():maximize()
 end)
 
-util.bindHyperAction("Down", function()
-	util.centerWindow(util.window(), 0.7, 0.8)
+hyper.bindAction("Down", function()
+	display.centerWindow(display.window(), 0.7, 0.8)
 end)
 
 --- MOVE BETWEEN DISPLAYS ---
 
-util.bindHyperAction("[", function()
-	local win = util.window()
+hyper.bindAction("[", function()
+	local win = display.window()
 	local currentScreen = win:screen()
-	local prevScreen = util.screenInDirection(currentScreen, "west") or util.screenInDirection(currentScreen, "north")
+	local prevScreen = display.screenInDirection(currentScreen, "west")
+		or display.screenInDirection(currentScreen, "north")
 	if prevScreen then
 		win:moveToScreen(prevScreen)
 	end
 end)
 
-util.bindHyperAction("]", function()
-	local win = util.window()
+hyper.bindAction("]", function()
+	local win = display.window()
 	local currentScreen = win:screen()
-	local nextScreen = util.screenInDirection(currentScreen, "east") or util.screenInDirection(currentScreen, "south")
+	local nextScreen = display.screenInDirection(currentScreen, "east")
+		or display.screenInDirection(currentScreen, "south")
 	if nextScreen then
 		win:moveToScreen(nextScreen)
 	end
