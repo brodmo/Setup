@@ -42,11 +42,11 @@ hyper.bindAction("3", function() keys.sendKey({ "cmd", "shift" }, "]") end)
 
 --- DISPLAY CONTROLS ---
 
-hyper.bindAction("left", function() display.tileWindow(display.window(), "left") end)
-hyper.bindAction("right", function() display.tileWindow(display.window(), "right") end)
+hyper.bindAction("left", function() display.tileWindow("left") end)
+hyper.bindAction("right", function() display.tileWindow("right") end)
 
-hyper.bindAction("up", function() display.window():maximize() end)
-hyper.bindAction("down", function() display.centerWindow(display.window(), 0.7, 0.8) end)
+hyper.bindAction("up", function() display.maximizeWindow() end)
+hyper.bindAction("down", function() display.centerWindow(0.7, 0.8) end)
 
 hyper.bindAction("[", function() display.moveToScreen({ "west", "north" }) end)
 hyper.bindAction("]", function() display.moveToScreen({ "east", "south" }) end)

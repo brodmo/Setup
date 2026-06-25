@@ -5,9 +5,10 @@ local M = {}
 
 --- MOVE ON DISPLAY ---
 
-local function resizeWindow(win, x, y, w, h)
+local function resizeWindow(x, y, w, h)
+	local win = hs.window.focusedWindow()
 	if not win then
-		hs.alert.show("Missing accessibility permissions")
+		hs.alert.show("Accessibility permissions may be missing")
 		return
 	end
 
@@ -22,16 +23,18 @@ local function resizeWindow(win, x, y, w, h)
 	win:setFrame(f)
 end
 
-function M.tileWindow(win, side)
+function M.tileWindow(side)
 	local x = side == "left" and 0 or 0.5
-	resizeWindow(win, x, 0, 0.5, 1)
+	resizeWindow(x, 0, 0.5, 1)
 end
 
-function M.centerWindow(win, x_scale, y_scale)
+function M.centerWindow(x_scale, y_scale)
 	local x_offset = (1 - x_scale) / 2
 	local y_offset = (1 - y_scale) / 2
-	resizeWindow(win, x_offset, y_offset, x_scale, y_scale)
+	resizeWindow(x_offset, y_offset, x_scale, y_scale)
 end
+
+function M.maximizeWindow() resizeWindow(0, 0, 1, 1) end
 
 --- MOVE BETWEEN DISPLAYS ---
 
