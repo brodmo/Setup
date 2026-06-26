@@ -5,7 +5,7 @@ local M = {} -- Module
 
 local menubar = hs.menubar.new()
 local sessionStart = os.time()
-local lockTimer
+local lockedAt
 
 local function refresh()
 	local duration = os.time() - sessionStart
@@ -23,16 +23,16 @@ end
 
 function M.start()
 	-- keep references so they aren't garbage-collected
-	M._tickTimer = hs.timer.doEvery(10, refresh)
+	M._refreshTimer = hs.timer.doEvery(10, refresh)
 	M._lockWatcher = hs.caffeinate.watcher
 		.new(function(e)
 			if e == hs.caffeinate.watcher.screensDidLock then
-				lockTimer = hs.timer.doAfter(300, newSession) -- locked 5 min = break
+				lockedAt = os.time()
 			elseif e == hs.caffeinate.watcher.screensDidUnlock then
-				if lockTimer then
-					lockTimer:stop()
-					lockTimer = nil
+				if lockedAt and os.time() - lockedAt >= 300 then
+					newSession() -- locked 5 min = break
 				end
+				lockedAt = nil
 			end
 		end)
 		:start()
