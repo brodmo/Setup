@@ -18,6 +18,7 @@ Plug 'machakann/vim-highlightedyank' " highlight yanked text
 packadd matchit " better % motion
 
 set NERDTree
+set VimEverywhere
 
 " ys<object>( add surrounding
 " ds( delete surrounding

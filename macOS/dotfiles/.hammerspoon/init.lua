@@ -6,6 +6,8 @@ local timer = require("timer")
 
 timer.start() -- session-length clock in the menubar
 
+hyper.bindAction("space", timer.reset)
+
 --- APP HOTKEYS ---
 
 hyper.bindAction("w", function() apps.open("Brave Browser") end) -- Web
