@@ -1,2 +1,5 @@
 **/zed/*
 !**/zed/*.json
+
+.DS_STORE
+
